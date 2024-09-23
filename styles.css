@@ -1,0 +1,944 @@
+
+
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Encabezado y navegación */
+
+header {
+    background-color: #009688; /* Color alusivo a la medicina */
+    color: #fff;
+    padding:  20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 60px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #00796b; /* Color de fondo cuando se pasa el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de sombreado */
+}
+.cart-icon i {
+    font-size: 1.2em; /* Tamaño del ícono */
+    margin-right: 5px; /* Espacio entre el ícono y el texto (si hay) */
+}
+
+/* Mini Menú de Categorías */
+
+#mini-menu {
+    padding: 10px;
+    background-color: #e0f2f1; /* Color suave para el menú */
+    text-align: center;
+}
+
+.menu-btn {
+    background-color: #004d40; /* Color verde oliva oscuro */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.menu-btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de sombreado verde oliva */
+}
+
+#menu-content {
+    display: none;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de menú */
+    padding: 15px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+}
+
+.menu-section {
+    display: none;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-section ul li {
+    margin-bottom: 10px;
+}
+
+.menu-section ul li a {
+    color: #00796b;
+    text-decoration: none;
+}
+
+.menu-section ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Banner Principal */
+
+#banner {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background: url('images/banner.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+}
+
+.banner-content {
+    color: #004d40; /* Color verde asociado a la medicina */
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background-color: #00796b; /* Color alusivo a la medicina */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de sombreado verde oliva */
+}
+
+/* Estilos para el banner publicitario */
+#publicidad {
+    width: 100%; /* El ancho total del contenedor principal */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra el banner horizontalmente */
+}
+
+.banner-publicidad {
+    position: relative; /* Para manejar la posición de los elementos hijos */
+    width: 100%; /* Puedes ajustar este valor según lo que necesites */
+    max-width: 2600px; /* Máximo ancho del banner */
+    height: 600px; /* Altura del banner */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+.carousel {
+    display: flex; /* Para mostrar las imágenes en una fila */
+    transition: transform 0.5s ease; /* Transición suave al cambiar de imagen */
+}
+
+
+
+.carousel-image {
+    width: 100%; /* Ancho de la imagen al 100% del contenedor */
+    height: 100%; /* Altura de la imagen al 100% del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+}
+
+/* Flechas */
+.prev-btn, .next-btn {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    font-size: 2.5rem;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%);
+    z-index: 9999; /* Asegurar que las flechas estén visibles */
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flecha izquierda */
+.prev-btn {
+    left: 10px;
+}
+
+/* Flecha derecha */
+.next-btn {
+    right: 10px;
+}
+
+/* Efecto hover en las flechas */
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Ocultar botones en pantallas pequeñas */
+@media (max-width: 768px) {
+    .prev-btn, .next-btn {
+        font-size: 2rem;
+        left: 5px;
+        right: 5px;
+    }
+}
+
+/* Ajustes para pantallas táctiles */
+@media (hover: none) {
+    .prev-btn, .next-btn {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+
+/* Ofertas Especiales */
+
+#ofertas {
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* Estilos para las tarjetas de ofertas especiales */
+h2 {
+    font-size: 2.25rem; /* Esto asignaría 36px */
+    
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1000px; /* Ajusta el valor según el ancho deseado */
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    max-width: 220px; /* Ajusta el ancho máximo de las tarjetas */
+    width: calc(25% - 10px); /* Ajusta el ancho en base al porcentaje del contenedor */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-info {
+    padding: 10px;
+}
+
+.price {
+    font-weight: bold;
+    color: #00796b;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover .card {
+    transform: scale(1.05);
+}
+.cart-icon i {
+    font-size: 1.2em; /* Tamaño del ícono */
+}
+.add-to-cart-form {
+    margin-top: 10px; /* Espacio superior */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+}
+
+.add-to-cart-form label {
+    font-size: 0.9em; /* Tamaño del texto de la etiqueta */
+    margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+}
+
+.add-to-cart-form input {
+    width: 60px; /* Ancho del campo de cantidad */
+    margin-bottom: 10px; /* Espacio debajo del campo de cantidad */
+    padding: 5px; /* Espacio interno del campo de cantidad */
+    border: 1px solid #ccc; /* Borde del campo de cantidad */
+    border-radius: 4px; /* Bordes redondeados del campo de cantidad */
+}
+
+.btn-add-to-cart {
+    background-color: #00796b; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados del botón */
+    padding: 10px 15px; /* Espacio interno del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centra el texto dentro del botón */
+    width: 95px; /* Ancho del campo de cantidad */
+}
+
+.btn-add-to-cart:hover {
+    background-color: #004d40; /* Color de fondo al pasar el cursor */
+}
+.subtitle {
+    font-size: 2rem; /* Mismo tamaño de fuente que Productos Destacados */
+    color: #004d40; /* Color verde oscuro consistente */
+    margin-bottom: 20px; /* Mismo margen inferior */
+    text-align: left; /* Alineado a la izquierda */
+    padding-left: 20px; /* Margen izquierdo consistente */
+}
+
+/* Estilo para la sección Nuestros Recomendados */
+
+#recomendados {
+    padding: 40px;
+    background-color: #f4f4f4;
+}
+
+#recomendados h2 {
+    font-size: 2rem; /* Mismo tamaño de fuente que Productos Destacados */
+    color: #004d40; /* Color verde oscuro consistente */
+    margin-bottom: 20px; /* Mismo margen inferior */
+    text-align: left; /* Alineado a la izquierda */
+    padding-left: 20px; /* Margen izquierdo consistente */
+}
+
+/* Estilos para las tarjetas dentro de Nuestros Recomendados */
+#recomendados .cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1000px; /* Ajusta el valor según el ancho deseado */
+}
+
+#recomendados .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    max-width: 220px; /* Ajusta el ancho máximo de las tarjetas */
+    width: calc(25% - 10px); /* Ajusta el ancho en base al porcentaje del contenedor */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#recomendados .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#recomendados .card-info {
+    padding: 10px;
+}
+
+#recomendados .price {
+    font-weight: bold;
+    color: #00796b; /* Color verde oscuro */
+}
+/* Estilo para la sección Salud y Medicamentos*/
+#Salud {
+    padding: 40px;
+    background-color: #f4f4f4;
+}
+#Salud h2 {
+    font-size: 2rem; /* Mismo tamaño de fuente que Productos Destacados */
+    color: #004d40; /* Color verde oscuro consistente */
+    margin-bottom: 20px; /* Mismo margen inferior */
+    text-align: left; /* Alineado a la izquierda */
+    padding-left: 20px; /* Margen izquierdo consistente */
+}
+    #Salud .cards-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 auto;
+        padding: 0 10px;
+        max-width: 1000px; /* Ajusta el valor según el ancho deseado */
+    }
+    
+    #Salud  .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        max-width: 220px; /* Ajusta el ancho máximo de las tarjetas */
+        width: calc(25% - 10px); /* Ajusta el ancho en base al porcentaje del contenedor */
+        box-sizing: border-box;
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #Salud  .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    #Salud  .card-info {
+        padding: 10px;
+    }
+    
+    #Salud  .price {
+        font-weight: bold;
+        color: #00796b; /* Color verde oscuro */
+}
+/* Estilo para la sección Belleza */
+
+#Belleza{
+    padding: 40px;
+    background-color: #f4f4f4;
+}
+#Belleza h2 {
+    font-size: 2rem; /* Mismo tamaño de fuente que Productos Destacados */
+    color: #004d40; /* Color verde oscuro consistente */
+    margin-bottom: 20px; /* Mismo margen inferior */
+    text-align: left; /* Alineado a la izquierda */
+    padding-left: 20px; /* Margen izquierdo consistente */
+}
+    #Belleza .cards-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 auto;
+        padding: 0 10px;
+        max-width: 1000px; /* Ajusta el valor según el ancho deseado */
+    }
+    
+    #Belleza  .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        max-width: 220px; /* Ajusta el ancho máximo de las tarjetas */
+        width: calc(25% - 10px); /* Ajusta el ancho en base al porcentaje del contenedor */
+        box-sizing: border-box;
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #Belleza .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    #Belleza .card-info {
+        padding: 10px;
+    }
+    
+    #Belleza  .price {
+        font-weight: bold;
+        color: #00796b; /* Color verde oscuro */
+}
+/* Estilo para el contenedor general de testimonios y noticias */
+
+.testimonios h2, .noticias h2 {
+    font-size: 1.8rem;
+    color: #004d40;
+    margin-bottom: 20px;
+    text-align: center; /* Títulos centrados */
+}
+#testimonios-noticias {
+    width: 100%; /* Ajustar según sea necesario */
+    margin: 10px 0; /* Reducir el margen para menos espacio entre elementos */
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Contenedor que organiza la seccion de opiniones y noticias en paralelo */
+.contenedor-testimonios-noticias {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Estilos para la caja de testimonios */
+.testimonios, .noticias {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 48%; /* Cada bloque ocupa el 48% del ancho del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los encabezados */
+.testimonios h2, .noticias h2 {
+    font-size: 1.8rem;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los testimonios */
+.testimonial {
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.testimonial span {
+    font-weight: bold;
+    color: #00796b;
+}
+
+/* Estilos para las noticias */
+.blog-post h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    margin-bottom: 10px;
+}
+
+.blog-post a {
+    color: #00796b;
+    text-decoration: none;
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
+}
+/* Estilo para el contenedor general de Información de Contacto y Redes Sociales */
+#contacto-redes {
+    padding: 40px;
+    background-color: #f4f4f4;
+}
+
+/* Estilo para la sección de Información de Contacto */
+.informacion-contacto, .redes-sociales {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Añade espacio entre bloques */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centrar los títulos de cada sección */
+.informacion-contacto h2, .redes-sociales h2 {
+    font-size: 1.8rem;
+    color: #004d40;
+    margin-bottom: 20px;
+    text-align: center; /* Centramos los títulos */
+}
+
+/* Estilo para los íconos de redes sociales */
+.redes-sociales .social-icons {
+    display: flex;
+    justify-content: center; /* Centramos los íconos */
+    gap: 20px;
+}
+
+.redes-sociales .social-icons a img {
+    width: 40px; /* Tamaño de los íconos */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.redes-sociales .social-icons a:hover img {
+    transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+}
+/.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    width: 40%; /* Reduce el ancho; ajusta según necesites */
+    padding: 20px; /* Reduce el padding si es necesario */
+    margin: 5% auto; /* Ajusta el margen para centrar correctamente */
+    border: 1px solid #888;
+    border-radius: 8px; /* Mantiene las esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Additional styles for form inputs and labels */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+    width: calc(100% - 20px); /* Ajusta el ancho de los inputs */
+    padding: 8px; /* Reduce el padding si es necesario */
+    margin-top: 8px; /* Ajusta el margen superior */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+button {
+    width: 50%; /* Ajusta el ancho al 50% del contenedor */
+    height: 40px; /* Más alto para un botón más grueso */
+    padding: 10px 20px; /* Padding más amplio */
+    margin: 10px auto; /* Centra el botón horizontalmente */
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    display: block; /* Asegura que el botón sea un bloque para que funcione el auto margin */
+}
+button:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Estilos para el formulario */
+.form-container {
+    margin: 20px 0; /* Ajustar el margen superior e inferior */
+}
+ .modal-content h2{
+   color:  #00796b;
+   text-align: center;
+
+}
+.modal-content label {
+    color:  #00796b;
+    font-weight: bold;
+ }
+ .modal-content p {
+    color:  #00796b;
+    font-weight: bold;
+ }
+ #menu-categorias {
+    background-color: #e0f2f1;
+    padding: 10px;
+}
+
+#menu-categorias ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu-categorias ul li {
+    margin-right: 20px;
+}
+
+#menu-categorias ul li a {
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#menu-categorias ul li a:hover {
+    background-color: #004d40;
+    color: white;
+}
+#portafolio-productos {
+    padding: 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#portafolio-productos h2 {
+    font-size: 2.5rem;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 20px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card-info {
+    padding: 10px 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #00796b;
+    margin-top: 10px;
+}
+
+.rating {
+    margin: 5px 0;
+}
+
+.rating span {
+    color: #f4b400; /* Color de las estrellas */
+    font-size: 1.2rem;
+}
+
+.add-to-cart-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 60px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.btn-add-to-cart {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #004d40;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+/* Estilo para la ventana modal_content_Nosotros*/
+
+.modal-content_Nosotros {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreado */
+    max-width: 900px; /* Ampliado para dar más espacio */
+    margin: 50px auto;
+    font-family: 'Arial', sans-serif;
+}
+h2
+{
+    color: #00796b;
+text-align: center; 
+}
+/* Contenedor principal para las dos cajas */
+.about-us-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 20px; /* Espacio entre las dos columnas */
+}
+
+/* Estilo para la caja de texto */
+.about-us-text {
+    padding: 10px; /* Añade algo de espacio interior */
+}
+
+.about-us-text h2 {
+    color: #00796b; /* Color verde para los títulos */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about-us-text p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la caja de la imagen */
+.about-us-image-container {
+    display: flex;
+    justify-content: center; /* Centra la imagen dentro de la caja */
+    align-items: center;
+    padding: 10px;
+}
+
+.about-us-image {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados */
+    object-fit: cover; /* Mantiene la proporción */
+}
+
+.modal-content-login {
+    width: 350px; /* Ancho ajustado para que sea más cuadrado */
+    height: 350px; /* Altura igual al ancho para hacerlo cuadrado */
+    padding: 20px;
+    margin: 5% auto;
+    border: 1px solid #888;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex; /* Centra el contenido dentro del cuadro */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    position: relative; /* Asegura que la "X" se posicione relativa al cuadro */
+}
+
+.close {
+
+position: absolute;
+top: 20px; /* Ajusta según sea necesario */
+right:10px; /* Mueve la "X" a la esquina superior izquierda */   
+font-size: 35px; /* Tamaño de la "X" */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+/* Estilos calificacion de prductos*/
+.rating {
+cursor: pointer;
+}
+
+.star {
+font-size: 24px; /* Ajusta el tamaño según tu diseño */
+    color: gold; /* Color de las estrellas seleccionadas */
+}
+
+.star.selected {
+color: gold;
+}
+
+.star:hover,
+.star:hover ~ .star {
+color: lightgray; /* Color de las estrellas en hover */
+}
+.social-icons a {
+    display: flex; /* Alinea el ícono y el texto en una fila */
+    align-items: center; /* Centra verticalmente el ícono y el texto */
+    margin: 10px 0;
+    font-size: 24px; /* Tamaño del ícono y texto */
+    text-decoration: none;
+    color: #000; /* Color del texto e ícono */
+}
+
+.social-icons i {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Cambia de color cuando pases el ratón */
+}
+/*Estilo para colocarle los precios en Promocion*/
+/* Precio normal (tachado) */
+.normal-price {
+    text-decoration: line-through;
+    color: #999; /* Color gris claro */
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+/* Precio en promoción */
+.promo-price {
+    color: #e53935; /* Color rojo */
+    font-weight: bold;
+    font-size: 1.2rem;
+}

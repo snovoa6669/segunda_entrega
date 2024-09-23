@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - PharmaNexis</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluir Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagenes/index/logo.jpeg" alt="PharmaNexis">
+            </a>
+        </div>
+        <div class="logo-container">
+            
+        </div>
+        <nav>
+            <ul>
+               <li><a href="index.html" class="btn-inicio">Inicio</a></li> 
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="Registro.html">Registro</a></li>
+                <li><a href="Login.html">Iniciar sesión</a></li>
+                <li><a href="#carrito" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="modal" id="modal-registro">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Registrarte</h2>
+            <p>Es rápido y fácil.</p>
+            <form action="/submit-your-form-handler" method="POST">
+                <input type="text" placeholder="Nombre" name="firstname" required>
+                <input type="text" placeholder="Apellido" name="lastname" required>
+                <input type="email" placeholder="Correo electrónico" name="email" required>
+                <input type="email" placeholder="Confirmar correo electrónico" name="confirm_email" required>
+                <input type="password" placeholder="Contraseña nueva (mín. 6 caracteres)" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,}" title="Debe contener al menos 6 caracteres, incluyendo un número y un carácter especial.">
+                <input type="password" placeholder="Confirmar contraseña" name="confirm_password" required title="Confirmar contraseña">
+                <label for="birthday">Fecha de nacimiento:</label>
+                <input type="date" id="birthday" name="birthday">
+                <div class="gender">
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Mujer</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Hombre</label>
+                    <input type="radio" id="custom" name="gender" value="custom">
+                    <label for="custom">Personalizado</label>
+                </div>
+                <button type="submit">Regístrate</button>
+            </form>
+            
+        </div>
+    
+<!-- Sección de Testimonios y Últimas Noticias -->
+<section id="testimonios-noticias">
+<div class="contenedor-testimonios-noticias">
+
+  <!-- Bloque de Lo que piensan los clientes -->
+  <div class="testimonios">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="testimonial">
+          <p>"Excelente atención y productos de calidad. Muy recomendados!"</p>
+          <span>- Juan Pérez</span>
+      </div>
+      <div class="testimonial">
+          <p>"Siempre encuentro lo que necesito y a buen precio."</p>
+          <span>- María González</span>
+      </div>
+  </div>
+
+  <!-- Bloque de Últimas Noticias -->
+  <div class="noticias">
+      <h2>Últimas Noticias</h2>
+      <div class="blog-post">
+          <h3>Cómo mantener una buena salud durante el invierno</h3>
+          <p>Consejos y recomendaciones para cuidar de tu salud en la temporada fría...</p>
+          <a href="#">Leer más</a>
+      </div>
+      <div class="blog-post">
+          <h3>5 medicamentos esenciales en casa</h3>
+          <p>Descubre los medicamentos que no pueden faltar en tu botiquín...</p>
+          <a href="#">Leer más</a>
+      </div>
+  </div>
+
+</div>
+</section>
+<section id="contacto">
+    <div class="redes-sociales">
+        <h2>Síguenos en Redes Sociales</h2>
+        <div class="social-icons">
+            <!-- Facebook -->
+            <a href="https://facebook.com/tu-farmacia" target="_blank">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/tu-farmacia" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://twitter.com/tu-farmacia" target="_blank">
+                <i class="fab fa-x-twitter"></i> X
+            </a>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2024 PharmaNexis. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
