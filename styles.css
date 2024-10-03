@@ -14,7 +14,7 @@ body {
 header {
     background-color: #009688; /* Color alusivo a la medicina */
     color: #fff;
-    padding:  20px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,29 +24,34 @@ header {
     height: 60px;
 }
 
+nav {
+    background-color: #009688; /* Color de fondo del menú */
+}
+
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding */
+    margin: 0; /* Elimina el margin */
+    display: flex; /* Utiliza flexbox para alinear horizontalmente */
+    justify-content: space-between; /* Espaciado uniforme entre los elementos */
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin: 0 15px; /* Espacio entre los elementos de la lista */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+nav a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 15px; /* Padding interno para los enlaces */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición para el efecto hover */
 }
 
-nav ul li a:hover {
-    background-color: #00796b; /* Color de fondo cuando se pasa el cursor */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de sombreado */
+nav a:hover {
+    background-color: #00796b; /* Color de fondo al pasar el ratón */
 }
+
 .cart-icon i {
     font-size: 1.2em; /* Tamaño del ícono */
     margin-right: 5px; /* Espacio entre el ícono y el texto (si hay) */

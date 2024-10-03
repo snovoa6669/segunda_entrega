@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - PharmaNexis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .modal-content {
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .info, .edit-info {
+            margin: 10px 0;
+        }
+        .logout-btn, .save-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50; /* Verde para guardar */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background-color: #c62828; /* Rojo para cerrar sesión */
+        }
+        .save-btn:hover {
+            background-color: #45a049; /* Verde oscuro para guardar */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagenes/index/logo.jpeg" alt="PharmaNexis">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="btn-inicio">Inicio</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="Login.html">Iniciar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="modal-content">
+        <h2>Perfil del Usuario</h2>
+        <div class="info" id="nombreUsuario"></div>
+        <div class="info" id="emailUsuario"></div>
+        <div class="info" id="cumpleUsuario"></div>
+        <div class="info" id="direccion1Usuario"></div>
+        <div class="info" id="direccion2Usuario"></div>
+        <div class="info" id="telefonoUsuario"></div>
+
+        <h2>Editar Información</h2>
+        <div class="edit-info">
+            <label for="direccion1">Dirección 1:</label>
+            <input type="text" id="editDireccion1" placeholder="Dirección 1">
+        </div>
+        <div class="edit-info">
+            <label for="direccion2">Dirección 2:</label>
+            <input type="text" id="editDireccion2" placeholder="Dirección 2">
+        </div>
+        <div class="edit-info">
+            <label for="telefono">Número de celular:</label>
+            <input type="tel" id="editTelefono" placeholder="Número de celular">
+        </div>
+        <div class="edit-info">
+            <label for="birthday">Fecha de nacimiento:</label>
+            <input type="date" id="editBirthday">
+        </div>
+
+        <button class="save-btn" id="saveBtn">Guardar cambios</button>
+        <button class="logout-btn" id="logoutBtn">Cerrar sesión</button>
+    </div>
+    
+
+    <script>
+        // Obtener la información del usuario activo desde localStorage
+        const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
+        // Verificar si hay un usuario activo
+        if (!usuarioActivo) {
+            window.location.href = "Login.html"
+        } else {
+            // Mostrar la información del usuario
+            document.getElementById('nombreUsuario').textContent = `Nombre: ${usuarioActivo.firstname} ${usuarioActivo.lastname}`;
+            document.getElementById('emailUsuario').textContent = `Correo: ${usuarioActivo.email}`;
+            document.getElementById('cumpleUsuario').textContent = `Cumpleaños: ${usuarioActivo.birthday}`;
+            document.getElementById('direccion1Usuario').textContent = `Dirección 1: ${usuarioActivo.direccion1}`;
+            document.getElementById('direccion2Usuario').textContent = `Dirección 2: ${usuarioActivo.direccion2}`;
+            document.getElementById('telefonoUsuario').textContent = `Número de celular: ${usuarioActivo.telefono}`;
+              // Prellenar los campos de edición con la información actual
+              document.getElementById('editDireccion1').value = usuarioActivo.direccion1;
+            document.getElementById('editDireccion2').value = usuarioActivo.direccion2;
+            document.getElementById('editTelefono').value = usuarioActivo.telefono;
+            document.getElementById('editBirthday').value = usuarioActivo.birthday;
+        }
+
+        // Guardar cambios al hacer clic en el botón de guardar
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            // Actualizar la información en el objeto de usuario
+            usuarioActivo.direccion1 = document.getElementById('editDireccion1').value;
+            usuarioActivo.direccion2 = document.getElementById('editDireccion2').value;
+            usuarioActivo.telefono = document.getElementById('editTelefono').value;
+            usuarioActivo.birthday = document.getElementById('editBirthday').value;
+
+            // Guardar la información actualizada en localStorage
+            localStorage.setItem('usuarioActivo', JSON.stringify(usuarioActivo));
+
+            alert('Información actualizada correctamente.');
+            // Opcional: Puedes recargar la página para mostrar los cambios
+            location.reload();
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('usuarioActivo');
+    window.location.href = "Login.html"; // Redirigir al inicio de sesión
+});
+         // Mostrar el botón del usuario con el nombre
+         const userBtn = document.getElementById('user-btn');
+            const usernameDisplay = document.getElementById('username-display');
+            usernameDisplay.textContent = usuarioActivo.firstname; // Establecer el nombre del usuario
+            userBtn.style.display = 'inline'; // Mostrar el botón con el nombre
+            // Lógica para cerrar sesión
+
+document.getElementById('logoutBtn').addEventListener('click', function() {
+    // Eliminar los datos de sesión de localStorage
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('usuarioActivo');
+    localStorage.removeItem('username');
+
+    // Redirigir a la página de inicio de sesión
+    window.location.href = 'Login.html';
+});
+    </script>
+    
+    
+<!-- Sección de Testimonios y Últimas Noticias -->
+<section id="testimonios-noticias">
+    <div class="contenedor-testimonios-noticias">
+    
+      <!-- Bloque de Lo que piensan los clientes -->
+      <div class="testimonios">
+          <h2>Lo que dicen nuestros clientes</h2>
+          <div class="testimonial">
+              <p>"Excelente atención y productos de calidad. Muy recomendados!"</p>
+              <span>- Juan Pérez</span>
+          </div>
+          <div class="testimonial">
+              <p>"Siempre encuentro lo que necesito y a buen precio."</p>
+              <span>- María González</span>
+          </div>
+      </div>
+    
+      <!-- Bloque de Últimas Noticias -->
+      <div class="noticias">
+          <h2>Últimas Noticias</h2>
+          <div class="blog-post">
+              <h3>Cómo mantener una buena salud durante el invierno</h3>
+              <p>Consejos y recomendaciones para cuidar de tu salud en la temporada fría...</p>
+              <a href="#">Leer más</a>
+          </div>
+          <div class="blog-post">
+              <h3>5 medicamentos esenciales en casa</h3>
+              <p>Descubre los medicamentos que no pueden faltar en tu botiquín...</p>
+              <a href="#">Leer más</a>
+          </div>
+      </div>
+    
+    </div>
+    </section>
+    <section id="contacto">
+        <div class="redes-sociales">
+            <h2>Síguenos en Redes Sociales</h2>
+            <div class="social-icons">
+                <!-- Facebook -->
+                <a href="https://facebook.com/tu-farmacia" target="_blank">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+    
+                <!-- Instagram -->
+                <a href="https://instagram.com/tu-farmacia" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+    
+                <!-- X (Twitter) -->
+                <a href="https://twitter.com/tu-farmacia" target="_blank">
+                    <i class="fab fa-x-twitter"></i> X
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 PharmaNexis. Todos los derechos reservados.</p>
+    </footer>
+    
+    </body>
+
+    </html>
+    

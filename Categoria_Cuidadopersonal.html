@@ -22,12 +22,13 @@
         </div>
         <nav>
             <ul>
-               <li><a href="index.html" class="btn-inicio">Inicio</a></li> 
+                <li><a href="index.html" class="btn-inicio">Inicio</a></li>
                 <li><a href="Productos.html">Productos</a></li>
                 <li><a href="Nosotros.html">Nosotros</a></li>
                 <li><a href="index.html#contacto">Contacto</a></li>
-                <li><a href="Registro.html">Registro</a></li>
-                <li><a href="Login.html">Iniciar sesión</a></li>
+                <li id="user-btn" style="display:none"><a href="Perfil.html" id="username-display"></a></li>
+                <li id="registro-btn"><a href="Registro.html">Registro</a></li>
+                <li id="login-btn"><a href="Login.html">Iniciar sesión</a></li>
                 <li><a href="#carrito" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
@@ -320,5 +321,22 @@
     <footer>
         <p>&copy; 2024 PharmaNexis. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        // Verificar el estado de inicio de sesión
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo')); // Obtener el usuario activo
+        
+        if (isLoggedIn === 'true' && usuarioActivo) {
+            // Ocultar los botones de iniciar sesión y registro
+            document.getElementById('login-btn').style.display = 'none';
+            document.getElementById('registro-btn').style.display = 'none';
+    
+            // Mostrar el botón del usuario con el nombre
+            const userBtn = document.getElementById('user-btn');
+            const usernameDisplay = document.getElementById('username-display');
+            usernameDisplay.textContent = `${usuarioActivo.firstname}`; // Establecer el nombre del usuario
+            userBtn.style.display = 'inline'; // Mostrar el botón con el nombre
+        } 
+    </script>
 </body>
 </html>

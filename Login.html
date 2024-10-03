@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - PharmaNexis</title>
+    <title>Login - PharmaNexis</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Incluir Font Awesome para los iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -25,6 +25,7 @@
                 <li><a href="Productos.html">Productos</a></li>
                 <li><a href="Nosotros.html">Nosotros</a></li>
                 <li><a href="index.html#contacto">Contacto</a></li>
+                
                 <li><a href="Registro.html">Registro</a></li>
                 <li><a href="Login.html">Iniciar sesión</a></li>
                 <li><a href="#carrito" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
@@ -35,14 +36,41 @@
         <div class="modal-content-login">
             <span class="close">&times;</span>
             <h2>Iniciar Sesión</h2>
-            <form action="/submit-login" method="POST">
-                <input type="email" placeholder="Correo electrónico" name="email" required>
-                <input type="password" placeholder="Contraseña" name="password" required>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Correo electrónico" name="email" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" name="password" required>
                 <button type="submit">Iniciar Sesión</button>
             </form>
             <p>¿No tienes una cuenta? <a href="Registro.html">Regístrate aquí</a></p>
         </div>
     </div>
+    
+    <script>
+   document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    // Obtener usuarios almacenados
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    // Verificar si el usuario existe
+    const usuario = usuarios.find(user => user.email === email && user.password === password);
+
+    if (usuario) {
+        // Guardar la información completa del usuario en localStorage al iniciar sesión
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('usuarioActivo', JSON.stringify(usuario)); // Guardar el objeto completo del usuario
+
+        // Redirigir al usuario a la página de inicio
+        window.location.href = 'index.html';
+    } else {
+        alert('Correo electrónico o contraseña incorrectos.');
+    }
+});
+
+</script>
     
 <!-- Sección de Testimonios y Últimas Noticias -->
 <section id="testimonios-noticias">
@@ -60,7 +88,7 @@
           <span>- María González</span>
       </div>
   </div>
-
+  
   <!-- Bloque de Últimas Noticias -->
   <div class="noticias">
       <h2>Últimas Noticias</h2>
@@ -102,5 +130,6 @@
 <footer>
     <p>&copy; 2024 PharmaNexis. Todos los derechos reservados.</p>
 </footer>
+
 </body>
 </html>
